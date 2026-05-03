@@ -36,7 +36,7 @@ Ask questions directly in Claude Code — it reads only the relevant files, not 
 
 > _Obsidian Graph View — each node is a table, each edge is a FK relationship_
 
-![Obsidian Graph View](docs/graph.png)
+![Obsidian Graph View](image/Obsidian_Graph_View.png)
 
 ---
 
