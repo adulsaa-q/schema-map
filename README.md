@@ -1,5 +1,9 @@
 # schema-map
 
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-compatible-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Turn a PostgreSQL database schema into an interactive Obsidian Graph View — then query it in natural language with Claude.
 
 ```
@@ -23,8 +27,16 @@ Large databases are hard to navigate. Which table connects to which? Through wha
 - **Indexes** for query planning
 - **`_index.md`** — a single manifest listing every table and its connections
 
-Open the output folder in Obsidian → press `Ctrl+G` → see the schema graph.  
+Open the output folder in Obsidian → press `Cmd+G` (Mac) / `Ctrl+G` (Windows/Linux) → see the schema graph.  
 Ask questions directly in Claude Code — it reads only the relevant files, not the whole schema.
+
+---
+
+## Screenshot
+
+> _Obsidian Graph View — each node is a table, each edge is a FK relationship_
+
+![Obsidian Graph View](docs/graph.png)
 
 ---
 
@@ -48,7 +60,7 @@ VAULT_DIR=/path/to/vault python3 schema_to_obsidian.py
 
 **3. Open vault in Obsidian**
 - Open Obsidian → `Open folder as vault` → select `schema_filemd/`
-- Press `Ctrl+G` to open Graph View
+- Press `Cmd+G` (Mac) / `Ctrl+G` (Windows/Linux) to open Graph View
 
 **4. Ask Claude**
 
@@ -116,9 +128,16 @@ Each table becomes a `.md` file:
 
 ---
 
+## Limitations
+
+- `.md` files are snapshots — re-run script after schema changes
+- FK detection requires explicit constraints in the database
+
+---
+
 ## Requirements
 
-- Python 3.11+
+- Python 3.9+
 - PostgreSQL (tested with [Pagila](https://github.com/devrimgunduz/pagila) sample DB)
 - [Obsidian](https://obsidian.md) for graph visualization
 - [Claude Code](https://claude.ai/code) for natural language queries
@@ -131,7 +150,7 @@ Each table becomes a `.md` file:
 -- "How do I join film with actor?"
 SELECT f.title, a.first_name, a.last_name
 FROM film f
-JOIN film_actor fa ON f.film_id  = fa.film_id
+JOIN film_actor fa ON f.film_id   = fa.film_id
 JOIN actor a       ON fa.actor_id = a.actor_id;
 
 -- "Which country has the most customers and what category do they prefer?"
@@ -154,7 +173,7 @@ country_customers AS (
 )
 SELECT
     tc.country,
-    cat.name AS category,
+    cat.name        AS category,
     COUNT(DISTINCT r.rental_id) AS rental_count
 FROM country_customers cc
 JOIN rental        r   ON cc.customer_id = r.customer_id

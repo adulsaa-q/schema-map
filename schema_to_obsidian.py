@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 # === CONFIG ===
 DB_URL    = os.environ.get("DB_URL", "postgresql://postgres@localhost/pagila")
-VAULT_DIR = os.environ.get("VAULT_DIR", "/Users/qdull/Documents/Vault/schema-map/schema_filemd")
+VAULT_DIR = os.environ.get("VAULT_DIR", os.path.join(os.path.dirname(__file__), "schema_filemd"))
 
 
 def get_row_count(table_name: str, valid_tables: set[str]) -> int:
