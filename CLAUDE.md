@@ -23,7 +23,7 @@ No need to build a production system — only use terminal + VS Code + Obsidian
 Run python schema_to_obsidian.py
 Get /vault/ folder with .md files per table
 Open that folder in Obsidian
-Press Ctrl+G → instantly see Graph View
+Press Cmd+G (Mac) / Ctrl+G (Win/Linux) → instantly see Graph View
 Query Claude directly in VS Code / Terminal
 Ask in natural language
 
@@ -34,6 +34,9 @@ Ask in natural language
 - [x] `schema_to_obsidian.py` — runs successfully and passed security review
 - [x] Obsidian Graph View — nodes and relationships are visible
 - [x] Query schema via Claude Code directly (no separate API required)
+- [x] Nullable flags on every column in `.md` output
+- [x] Indexes section per table in `.md` output
+- [x] `_index.md` manifest — read this first for token-efficient subgraph lookup
 - [ ] Auto-detect implicit FK
 - [ ] Improve .md format readability
 
