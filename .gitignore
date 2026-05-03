@@ -16,6 +16,7 @@ pagila-data.sql
 
 # Local Claude Code settings
 .claude/
+CLAUDE.md
 
 # Obsidian personal config (workspace state + themes)
 .obsidian/
