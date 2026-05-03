@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# macOS
+.DS_Store
+
+# Large SQL data dump (schema only is enough)
+pagila-data.sql
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+
+# Local Claude Code settings
+.claude/
+
+# Obsidian personal config (workspace state + themes)
+.obsidian/
+
+# Editor
+.vscode/
+*.swp
+*.swo
